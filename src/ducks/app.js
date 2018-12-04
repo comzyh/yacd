@@ -54,7 +54,6 @@ function getInitialState() {
 console.log('hello');
 
 export default function reducer(state = getInitialState(), { type, payload }) {
-  debugger;
   console.log('app reducer', state);
   switch (type) {
     case UpdateClashAPIConfig: {
@@ -66,6 +65,7 @@ export default function reducer(state = getInitialState(), { type, payload }) {
     }
 
     default:
+      console.log('app:return state');
       return state;
   }
 }
