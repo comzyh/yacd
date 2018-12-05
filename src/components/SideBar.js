@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-// import { useActions } from 'm/store';
-// import { switchTheme } from 'd/app';
+import { useActions } from 'm/store';
+import { switchTheme } from 'd/app';
 
 import Icon from 'c/Icon';
 
@@ -31,10 +31,10 @@ SideBarRow.propTypes = {
   labelText: PropTypes.string
 };
 
-// const actions = { switchTheme };
+const actions = { switchTheme };
 
 function SideBar() {
-  // const { switchTheme } = useActions(actions);
+  const { switchTheme } = useActions(actions);
   return (
     <div className={s.root}>
       <div className={s.logo}>
@@ -48,7 +48,7 @@ function SideBar() {
         <SideBarRow to="/logs" iconId={file.id} labelText="Logs" />
       </div>
 
-      <div className={s.themeSwitchContainer}>
+      <div className={s.themeSwitchContainer} onClick={switchTheme}>
         <Icon id={moon.id} width={20} height={20} />
       </div>
     </div>

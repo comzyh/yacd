@@ -5,12 +5,10 @@ import rootReducer from '../ducks';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 function configureStore() {
-  console.log('configureStore store', store);
   const store = createStore(
     rootReducer,
     composeEnhancers(applyMiddleware(thunkMiddleware))
   );
-  console.log('configureStore store', store);
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
@@ -24,6 +22,5 @@ function configureStore() {
 }
 
 const store = configureStore();
-console.log('store', store);
 
 export { store };

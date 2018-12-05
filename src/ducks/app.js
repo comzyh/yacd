@@ -45,16 +45,13 @@ const defaultState = {
 };
 
 function getInitialState() {
-  console.log('getInitialState');
   let s = loadState(StorageKey);
   if (!s) s = defaultState;
   // TODO flat clashAPIConfig?
   return { theme: 'dark', ...s };
 }
-console.log('hello');
 
 export default function reducer(state = getInitialState(), { type, payload }) {
-  console.log('app reducer', state);
   switch (type) {
     case UpdateClashAPIConfig: {
       return { ...state, clashAPIConfig: { ...payload } };
@@ -65,7 +62,6 @@ export default function reducer(state = getInitialState(), { type, payload }) {
     }
 
     default:
-      console.log('app:return state');
       return state;
   }
 }
